@@ -9,13 +9,19 @@ import io.ktor.http.ContentType
 import io.ktor.response.respondText
 import io.ktor.routing.Routing
 import io.ktor.routing.get
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.netty.Netty
 
-fun Application.main() {
+fun Application.module() {
     install(DefaultHeaders)
     install(CallLogging)
     install(Routing) {
         routes()
     }
+}
+
+fun main(args: Array<String>) {
+    embeddedServer(Netty, 8080, watchPaths = listOf("HelloKotlinKt"), module = Application::module).start()
 }
 
 fun Routing.routes() {

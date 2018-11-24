@@ -11,7 +11,8 @@ plugins {
 group 'com.mowagdy.hello'
 version '1.0-SNAPSHOT'
 
-mainClassName = "io.ktor.server.netty.EngineMain"
+//mainClassName = "io.ktor.server.netty.EngineMain"
+mainClassName = "hello.HelloKotlin"
 
 repositories {
     mavenCentral()
